@@ -25,7 +25,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
+
+    protected function redirectTo()
+    {
+        if(auth()->user()->isAdmin()) {
+            return '/admin/dashboard';
+        } else if(auth()->user()->isOfficer()) {
+            return '/officer/dashboard';
+        } else if(auth()->user()->isStudent()) {
+            return '/student/dashboard';
+        } else if(auth()->user()->isTeacher()) {
+            return '/teacher/dashboard';
+        } else if(auth()->user()->isCompany()) {
+            return '/company/dashboard';
+        }
+    }
 
     /**
      * Create a new controller instance.
@@ -36,4 +51,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    
 }

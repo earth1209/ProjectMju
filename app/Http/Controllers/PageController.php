@@ -73,13 +73,4 @@ class PageController extends Controller
     {
         return view('pages.upgrade');
     }
-
-    public function intern()
-    {
-        return view('pages.intern');
-    }
-    public function tablerightsmanagement()
-    {
-        return view('users.tablerightsmanagement');
-    }
 }

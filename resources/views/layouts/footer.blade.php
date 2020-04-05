@@ -1,31 +1,38 @@
-<footer class="footer">
-    <div class="container-fluid">
-        <ul class="nav">
-            <li class="nav-item">
-                <a href="https://creative-tim.com" target="blank" class="nav-link">
-                    {{ _('Creative Tim') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="https://updivision.com" target="blank" class="nav-link">
-                    {{ _('Updivision') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    {{ _('About Us') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    {{ _('Blog') }}
-                </a>
-            </li>
-        </ul>
-        <div class="copyright">
-            &copy; {{ now()->year }} {{ _('made with') }} <i class="tim-icons icon-heart-2"></i> {{ _('by') }}
-            <a href="https://creative-tim.com" target="_blank">{{ _('Creative Tim') }}</a> &amp;
-            <a href="https://updivision.com" target="_blank">{{ _('Updivision') }}</a> {{ _('for a better web') }}.
-        </div>
-    </div>
-</footer>
+<footer role="contentinfo" id="footer_1" class="bg_light_3"><section class="footer_top_part" style="margin-top: -25px;"><div class="container"><div class="row"><div class="col-md-6 m_bottom_30"><h5 class="color_dark m_bottom_20 fw_light">MJU LINKS</h5> <div class="container-fluid"><div class="row"><ul class="col-xs-12 col-sm-6 fw_light w_break"><li><a href="http://www.mju.ac.th" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        มหาวิทยาลัยแม่โจ้
+                                                    </div></div></div></a></li><li><a href="http://www.e-manage.mju.ac.th/" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        ระบบ E-manage
+                                                    </div></div></div></a></li><li><a href="http://www.payroll.mju.ac.th/" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        ตรวจสอบเงินเดือน
+                                                    </div></div></div></a></li><li><a href="http://www.science.mju.ac.th" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        คณะวิทยาศาสตร์
+                                                    </div></div></div></a></li><li><a href="http://www.education.mju.ac.th" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        สำนักบริหารและพัฒนาวิชาการ
+                                                    </div></div></div></a></li><li><a href="http://www.coop.mju.ac.th" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        งานสหกิจศึกษา
+                                                    </div></div></div></a></li><li><a href="http://www.it.mju.ac.th" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        ศูนย์เทคโนโลยีสารสนเทศ
+                                                    </div></div></div></a></li></ul> <ul class="col-xs-12 col-sm-6 fw_light w_break"><li><a href="http://www.e-manage.mju.ac.th/documentInbox.aspx" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        เอกสารอิเล็กทรอนิกส์
+                                                    </div></div></div></a></li><li><a href="http://mail.mju.ac.th/owa/auth/logon.aspx?replaceCurrent=1&amp;url=https://mail.mju.ac.th/owa" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        เมล์มหาวิทยาลัย
+                                                    </div></div></div></a></li><li><a href="http://www.facebook.com/comscience.mju" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        เฟสบุคสาขาวิชาฯ
+                                                    </div></div></div></a></li><li><a href="http://www.mju.ac.th/etesting/etesting.html" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        ศูนย์สอบอิเล็กทรอนิกส์
+                                                    </div></div></div></a></li><li><a href="http://reg.mju.ac.th/registrar/home.asp" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        งานทะเบียนและสถิตินักศึกษา
+                                                    </div></div></div></a></li><li><a href="http://personnel.mju.ac.th" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        กองการเจ้าหน้าที่
+                                                    </div></div></div></a></li><li><a href="http://10.1.1.4/fingerscan/index.asp" class="color_dark d_inline_b"><div class="not-fixed-table" style="vertical-align: middle;"><div class="row"><div class="cell" style="padding-right: 1rem;"><span class="icon_wrap_size_0 circle color_grey_light_5 d_block tr_inherit f_left"><i class="icon-angle-right"></i></span></div> <div class="cell">
+                                                        ตรวจสอบเวลาทำงานบุคลากร
+                                                    </div></div></div></a></li></ul></div></div></div> <div class="col-md-3 col-sm-6 m_bottom_30"><h5 class="color_dark m_bottom_20 fw_light">CSMJU Facebook</h5> <div>
+                        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcomputersciencemju%2F%3Ffref%3Dts&amp;tabs&amp;width=235&amp;height=258&amp;small_header=false&amp;adapt_container_width=false&amp;hide_cover=false&amp;show_facepile=true&amp;appId" style="border:none;overflow:hidden;margin:0 auto;display:block;" scrolling="no" frameborder="0" allowtransparency="true" width="235" height="235">
+                        </iframe>
+                    </div></div> <div class="col-md-3 col-sm-6 m_bottom_30"><h5 class="color_dark m_bottom_20 fw_light">QR Code</h5> <div>
+                        <img src="newimages/QR.jpg" class="csmju-qrcode">
+                    </div></div></div></div></section> <hr class="m_bottom_45 divider_type_3 m_xs_bottom_30"> <section class="footer_middle_part"><div class="container"><div class="row"><div class="col-sm-4 fw_light m_bottom_30"><img src="newimages/csmju_logo.gif" class="csmju-logo"></div> <div class="col-sm-8 m_bottom_30"><h5 class="color_dark m_bottom_20 fw_light">Contact Us</h5> <div class="container-fluid"><div class="row"><ul class="col-xs-12 col-sm-6 fw_light w_break"><li class="m_bottom_8"><div class="not-fixed-table" style="vertical-align: top;"><div class="body"><div class="row"><div class="cell" style="padding-right: 1rem;"><div class="icon_wrap_size_1 color_pink circle f_left"><i class="icon-phone-1"></i></div></div> <div class="cell" style="word-break: break-word;">+6653873890-3</div></div></div></div></li><li class="m_bottom_8"><div class="not-fixed-table" style="vertical-align: top;"><div class="body"><div class="row"><div class="cell" style="padding-right: 1rem;"><div class="icon_wrap_size_1 color_pink circle f_left"><i class="icon-mail-alt"></i></div></div> <div class="cell" style="word-break: break-word;">Fax: +6653873898</div></div></div></div></li><li class="m_bottom_8"><div class="not-fixed-table" style="vertical-align: top;"><div class="body"><div class="row"><div class="cell" style="padding-right: 1rem;"><div class="icon_wrap_size_1 color_pink circle f_left"><i class="icon-skype"></i></div></div> <div class="cell" style="word-break: break-word;">สาขาวิชาวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์</div></div></div></div></li></ul> <ul class="col-xs-12 col-sm-6 fw_light w_break"><li class="m_bottom_8"><div class="not-fixed-table" style="vertical-align: top;"><div class="body"><div class="row"><div class="cell" style="padding-right: 1rem;"><div class="icon_wrap_size_1 color_pink circle f_left"><i class="icon-location"></i></div></div> <div class="cell" style="word-break: break-word;">มหาวิทยาลัยแม่โจ้<br>63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290<br><br>
+                            <a href="https://www.google.com/maps/place/%E0%B8%AA%E0%B8%B2%E0%B8%82%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B8%9E%E0%B8%B4%E0%B8%A7%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B9%8C/@18.8959443,99.0108007,17z/data=!3m1!4b1!4m5!3m4!1s0x30da234aca979f93:0xb01d3d9375066a7a!8m2!3d18.8959392!4d99.0129894" target="_blank" class="button_type_2 color_dark r_corners tr_all color_pink_hover d_inline_m fs_medium t_md_align_c w_break">
+                                Open in Google Maps
+                            </a>
+                        </div></div></div></div></li></ul></div></div></div></div></div></section> <section class="footer_bottom_part t_align_c color_grey bg_light_4 fw_light"><p>© 2016 CSMJU. All Rights Reserved.</p> <p>© Design &amp; Development by CSMJU'19.[CS442]</p></section></footer>

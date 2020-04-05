@@ -13,6 +13,9 @@
 
  */
 
+ /* font */
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+
 /*     brand Colors              */
 
 /* navbar color */
@@ -50,7 +53,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,'Kanit', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -61,7 +64,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Kanit', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -88,13 +91,14 @@ section {
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
   color: #525f7f;
   text-align: left;
   background-color: #1e1e2f;
+
 }
 
 [tabindex="-1"]:focus {
@@ -2518,15 +2522,15 @@ fieldset:disabled a.btn {
 
 .btn-warning {
   color: #ffffff;
-  background-color: #ff8d72;
-  border-color: #ff8d72;
+  background-color: #ffaa72;
+  border-color: #ffbd72;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-warning:hover {
   color: #ffffff;
-  background-color: #ff6e4c;
-  border-color: #ff643f;
+  background-color: #ffc04c;
+  border-color: #ffcc3f;
 }
 
 .btn-warning:focus,
@@ -2545,14 +2549,14 @@ fieldset:disabled a.btn {
 .btn-warning:not(:disabled):not(.disabled).active,
 .show>.btn-warning.dropdown-toggle {
   color: #ffffff;
-  background-color: #ff643f;
-  border-color: #ff5932;
+  background-color: #ffac3f;
+  border-color: #ffa632;
 }
 
 .btn-warning:not(:disabled):not(.disabled):active:focus,
 .btn-warning:not(:disabled):not(.disabled).active:focus,
 .show>.btn-warning.dropdown-toggle:focus {
-  box-shadow: none, 0 0 0 0 rgba(255, 141, 114, 0.5);
+  box-shadow: none, 0 0 0 0 rgba(255, 182, 114, 0.5);
 }
 
 .btn-danger {
@@ -6038,7 +6042,7 @@ button.close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -6163,7 +6167,7 @@ button.close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Kanit', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10385,14 +10389,14 @@ a.text-darker:focus {
   margin: 4px 1px;
   border-radius: 0.4285rem;
   cursor: pointer;
-  background: #344675;
+  background: #743475;
   background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675);
   background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675);
   background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675);
+  background-image: linear-gradient(to bottom left, #9a1686, #e25dd2, #d55cbe);
   background-size: 210% 210%;
   background-position: top right;
-  background-color: #344675;
+  background-color: #b0278f;
   transition: all 0.15s ease;
   box-shadow: none;
   color: #ffffff;
@@ -11069,12 +11073,13 @@ fieldset[disabled] .btn-info.active {
   box-shadow: none;
 }
 
+/* แก้สี */
 .btn-warning {
-  background: #ff8d72;
-  background-image: -webkit-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
-  background-image: -o-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
-  background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
-  background-image: linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72);
+  background: #ff9f72;
+  background-image: -webkit-linear-gradient(to bottom left, #ff8d72, #ffde64, #ff8d72);
+  background-image: -o-linear-gradient(to bottom left, #ff8d72, #ffde64, #ff8d72);
+  background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ffde64, #ff8d72);
+  background-image: linear-gradient(to bottom left, #ff8a72, #fffa64, #ffa272);
   background-size: 210% 210%;
   background-position: top right;
   background-color: #ff8d72;
@@ -13986,7 +13991,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Kanit', sans-serif;
 }
 
 .card h1,
@@ -14835,7 +14840,7 @@ table.tablesorter thead tr .headerSortDown {
 .wrapper {
   position: relative;
   top: 0;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .wrapper.wrapper-full-page {
@@ -14946,7 +14951,7 @@ table.tablesorter thead tr .headerSortDown {
 .sidebar .sidebar-wrapper [data-toggle="collapse"]~div>ul>li:hover>a .sidebar-normal,
 .off-canvas-sidebar .sidebar-wrapper [data-toggle="collapse"]~div>ul>li:hover>a .sidebar-mini-icon,
 .off-canvas-sidebar .sidebar-wrapper [data-toggle="collapse"]~div>ul>li:hover>a .sidebar-normal {
-  color: #ffffff;
+  color: #000000;
 }
 
 .sidebar .sidebar-wrapper .nav [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon,
@@ -15007,7 +15012,7 @@ table.tablesorter thead tr .headerSortDown {
 .off-canvas-sidebar .nav li>a {
   margin: 10px 15px 0;
   border-radius: 30px;
-  color: #ffffff;
+  color: #3b3b3b;
   display: block;
   text-decoration: none;
   position: relative;
@@ -15132,7 +15137,7 @@ table.tablesorter thead tr .headerSortDown {
   line-height: 30px;
   width: 34px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.8);
   position: relative;
 }
 
@@ -15182,7 +15187,7 @@ table.tablesorter thead tr .headerSortDown {
   margin: 10px 10px;
   color: #ffffff;
   line-height: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Kanit', sans-serif;
 }
 
 .sidebar .logo .simple-text,
@@ -15191,7 +15196,7 @@ table.tablesorter thead tr .headerSortDown {
   padding: 0.5rem 0;
   display: block;
   white-space: nowrap;
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   font-weight: 400;
   line-height: 30px;
@@ -16925,7 +16930,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .sidebar p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(53, 53, 53, 0.8);
 }
 
 .white-content .main-panel {
@@ -17143,7 +17148,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .card:not(.card-white).nav-pills .nav-item .nav-link.active {
-  color: #ffffff;
+  color: #8f3535;
 }
 
 .white-content .card:not(.card-white) .tab-content .tab-pane {
@@ -17303,7 +17308,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card .card-header .card-category {
-  color: #9A9A9A;
+  color: rgb(255, 255, 255);
   margin-bottom: 5px;
   font-weight: 300;
 }
@@ -17317,7 +17322,8 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card.card-white {
-  background: #ffffff;
+  background-image: url('../img/icon/bg_login.jpg');
+  background-color: var(--white);
 }
 
 .card.card-white .card-title {
@@ -17767,7 +17773,7 @@ Copyright (c) 2015 Daniel Eden
 
 .full-page>.content {
   padding-bottom: 150px;
-  padding-top: 150px;
+  padding-top: 70px;/*แก้จาก 150 เป็น 70*/
 }
 
 .full-page .footer {
@@ -17784,7 +17790,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .login-page .card-login.card-white .card-header .card-title {
-  color: #ffffff;
+  color: #c805da81;
 }
 
 .login-page .card-login .card-header .card-title {
@@ -17798,7 +17804,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .login-page .card-login .card-header {
-  padding: 0 0 100px;
+  /* padding: 0 0 100px; */
   overflow: hidden;
 }
 
@@ -17961,6 +17967,172 @@ Copyright (c) 2015 Daniel Eden
 
 .breadcrumb-item.active {
   color: rgba(34, 42, 66, 0.7);
+  
+}
+
+/* video dashboard page */
+
+.relative,
+.tooltip_container{
+	position:relative;
+	z-index:1;
+}
+
+.wrapper{
+	overflow:hidden;
+}
+
+.w_full,
+.wide_layout,
+[class*="_isotope_container"] .shop_isotope_item.list_view{
+	width:100%;
+}
+
+.t_align_c,
+.clients.brands .owl-controls{
+	text-align:center;
+}
+
+.fs_medium,
+.accordion_item .icon-plus{
+	font-size:0.875em;
+}
+
+.fw_light{
+	font-weight:300;
+}
+
+.t_align_c,
+.clients.brands .owl-controls{
+	text-align:center;
+}
+
+.m_bottom_10{
+	margin-bottom:10px;
+}
+
+.m_bottom_20{
+	margin-bottom:20px;
+}
+
+.m_bottom_23{
+	margin-bottom:23px;
+}
+
+.color_grey_light_2{
+	color:#d1d5d8;
+}
+
+.border_none{
+	border:none !important;
+}
+
+.login_icon{
+	position:absolute;
+	top:50%;
+	right:20px;
+	-webkit-transform:translateY(-50%);
+	-moz-transform:translateY(-50%);
+	-o-transform:translateY(-50%);
+	-ms-transform:translateY(-50%);
+	transform:translateY(-50%);
+}
+
+.create_account_form_wrap{
+	background:rgba(255,255,255,.6);
+	padding:28px 20px 30px;
+	width:390px;
+}
+
+.video_wrap{
+	position:absolute;
+	width:100%;
+	height:100%;
+  padding-bottom:57%;
+  left:0;
+	top:0;
+	z-index:-1;
+}
+
+.video_wrap > video,
+.iframe_video_wrap > iframe,
+.slider_video_wrap > iframe{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+  left: 0;
+}
+
+.video_wrap > video{
+	top:-10%;
+}
+
+.appear-animation {
+	opacity: 0;
+}
+
+.appear-animation-visible {
+	opacity: 1;
+}
+
+form li input,
+form li textarea,form .inline_select{
+	width:82%;
+}
+
+.text-center{
+  text-align: center;
+
+}
+
+p.font{
+  font-family:'Kanit', sans-serif;
+  color:midnightblue;
+  font-size: 50px;
+}
+
+.text-info1 {
+  color: #1d8cf8 !important;
+}
+
+.mt2 {
+  margin-top: 20px;
+}
+
+/* .my_diary_options a {
+  border: 1px solid #ffd780;
+  border-radius: 6px;
+  color: #46fbdf;
+  font-size: 14px;
+  padding: 4px 8px;
+} */
+
+.pad{
+  padding-right: 100px;
+}
+.pad1 tr{
+  margin-bottom: 50pt;
+}
+
+
+/* video test */
+.video-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}
+.video-container video {
+  min-width: 100%; 
+  min-height: 100%; 
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  background: rgba(0,0,0,0);
 }
 
 

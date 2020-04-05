@@ -25,6 +25,12 @@
                                 <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ _('Email address') }}" value="{{ old('email', auth()->user()->email) }}">
                                 @include('alerts.feedback', ['field' => 'email'])
                             </div>
+
+                            <div class="form-group{{ $errors->has('type') ? ' has-danger' : '' }}">
+                                <label>{{ _('type') }}</label>
+                                <input type="int" name="type" class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}" placeholder="{{ _('type') }}" value="{{ old('type', auth()->user()->type) }}">
+                                @include('alerts.feedback', ['field' => 'type'])
+                            </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-fill btn-primary">{{ _('Save') }}</button>

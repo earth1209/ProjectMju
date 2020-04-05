@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class UserController extends Controller
 {
@@ -92,5 +93,22 @@ class UserController extends Controller
 
         return redirect()->route('user.index')->withStatus(__('User successfully deleted.'));
     }
-   
+
+    public function get_name_user()
+    {   
+        
+        // $users = DB::table('resumes')->paginate(4);//pagination 
+        //$users = DB::table('resumes')->get();//แสดงข้อมูลทั้งหมดในหน้าเดียว
+        // $resumes = DB::table('resumes')->get();
+        // return view('pages.company.resume', ['resumes' => $resumes]);
+        
+        // print_r($users);
+
+        $user = DB::table('users')->get('name');
+        // print_r($user);
+        
+         return view('layouts.navbars.navs.auth',['users' => $user]);
+        
+       
+    }
 }

@@ -7,12 +7,12 @@
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'White Dashboard') }}</title>
+        {{-- <title>{{ config('app.name', 'White Dashboard') }}</title> --}}
+    <title>{{'CSMJU INTERNSHIP'}}</title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
         <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
@@ -53,7 +53,9 @@
         @endauth
         <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
-                
+                <a href="#" data-toggle="dropdown">
+                <i class="fa fa-cog fa-2x"> </i>
+                </a>
                 <ul class="dropdown-menu">
                 <li class="header-title"> Sidebar Background</li>
                 <li class="adjustments-line">

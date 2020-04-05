@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
+use App\Recruits_news;
 
 class HomeController extends Controller
 {
@@ -21,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $recruits_news = Recruits_news::latest()->paginate(10);
+        return view('dashboard', compact('recruits_news'));
     }
 }

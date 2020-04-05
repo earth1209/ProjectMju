@@ -8,7 +8,11 @@
                     <span class="navbar-toggler-bar bar3"></span>
                 </button>
             </div>
-            <a class="navbar-brand" href="#">{{ $page ?? '' }}</a>
+            <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ asset('white') }}/img/icon/csmju_logo5.png" style="width: 65%;" alt="homepage" class="img-responsive" />
+                </a>
+            </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -17,11 +21,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link text-primary">
                         <i class="tim-icons icon-minimal-left"></i> {{ _('Back to Dashboard') }}
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item ">
                     <a href="{{ route('register') }}" class="nav-link">
                         <i class="tim-icons icon-laptop"></i> {{ _('Register') }}
