@@ -20,6 +20,7 @@
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
@@ -31,7 +32,7 @@
                     <div class="content">
                         @yield('content')
                     </div>
-
+                    
                     @include('layouts.footer')
                 </div>
             </div>
@@ -51,7 +52,7 @@
                 </div>
             </div>
         @endauth
-        <div class="fixed-plugin">
+        {{-- <div class="fixed-plugin">
             <div class="dropdown show-dropdown">
                 <a href="#" data-toggle="dropdown">
                 <i class="fa fa-cog fa-2x"> </i>
@@ -84,7 +85,7 @@
                 </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
@@ -208,5 +209,22 @@
             });
         </script>
         @stack('js')
+
+        @stack('js')
+        <!-- jQuery -->
+        {{-- <script src="//code.jquery.com/jquery.js"></script> --}}
+        <!-- DataTables -->
+        {{-- <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script> --}}
+        <!-- Bootstrap JavaScript -->
+        {{-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> --}}
+        <!-- App scripts -->
+        {{-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> --}}
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        {{-- <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script> --}}
+        {{-- <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script> --}}
+        {{-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> --}}
+        {{-- <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> --}}
+        @stack('scripts')
+
     </body>
 </html>

@@ -2,6 +2,18 @@
 
 @section('content')
 
+<style>
+
+  div.b {
+  white-space: nowrap; 
+  width: 100px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  /* border: 1px solid #000000; */
+}
+
+</style>
+
 <div class='container'>
   <div class="row">
      <div class="col-12">
@@ -10,65 +22,94 @@
                   <ul class="row">
                       <div class="col-md-3">
                         <img src="{{ asset('white') }}/img/icon/book.png" style="width: 20%;" alt="homepage" class="img-responsive" />
-                        บันทึกประจำวัน
+                        {{-- <a href="diaries.create">   </a> --}}
+                        {{-- <a href="diariesa/create" >บันทึกประจำวัน</a>  --}}
+                        <strong>บันทึกประจำวัน</strong>
+
                       </div>
                       <div class="col-md-6 text-right">
-                        <button class="btn btn-primary"><i class="tim-icons icon-book-bookmark"></i>  บันทึกประจำวันของฉัน</button>
+                        {{-- <a type="button" href="{{route('diariesa.create')}}" class="btn btn-primary" >
+                          <i class="tim-icons icon-book-bookmark"></i> สร้างบันทึกประจำวัน</a> --}}
                       </div>
+
                       <div class="col-md-3 text-right">
-                        {{-- <button type="submit" class="btn btn-primary-title" onclick="{{ Redirect::to('student.show_write_diary')}}"><i class="tim-icons icon-simple-add"></i>  เขียนรายการใหม่</button> --}}
-                        <button type="submit" class="btn btn-info" onclick="window.location='{{ route("student.show_write_diary") }}'"><i class="tim-icons icon-simple-add"></i>  เพิ่มบันทึกประจำวัน</button>
-                      </div>     
-                  </ul> 
+                        <a type="button" href="{{route('diariesa.create')}}" class="btn btn-info" >
+                          <i class="tim-icons icon-simple-add"></i> สร้างบันทึกประจำวัน</a>
+                      </div> 
+
+
+                  </ul>
               </h4>
           </div>
-          <div class="col-12 mt2">
-            <div class="card card-chart">
-              <div class="card-header" style="background-color: #9febffad ">
-                  <ul class="row">
-                      <div class="col-md-5">
-                        <p style="line-height: 50px;"> รายการไดอารี่</p>
-                      </div>
-                      <div class="col-md-4 text-right">
-                        <input style="margin: 7px 1px;" type="text" name="search" value="" class="form-control" id="diarysearch" placeholder="คำหลัก" autocomplete="entrysearch">
-                      </div>
-                      <div class="col-md-3 text-right">
-                        <input type="hidden" name="action" value="lookup">
-                        <button type="submit" class="btn btn-info"><i class="fa fa-search"></i> ค้นหา</button>
-                      </div>             
-                  </ul> 
-              </div>
-            </div>
-          </div>
-          <form action="" method="post">
-            {{ csrf_field() }}
-              Task name:
-              <br />
-              <input type="text" name="name" />
-              <br /><br />
-              Task description:
-              <br />
-              <textarea name="description"></textarea>
-              <br /><br />
-              Start time:
-              <br />
-              <input type="text" name="task_date" class="date" />
-              <br /><br />
-              <input type="submit" value="Save" />
-          </form>
           
-      </div>
+          @include('alert._messages')
+          
+      <table class="table table-striped" id="table3d">
+        <thead class="">
+          <tr class="table-info">
+            <th scope="col" class="text-center" >ลำดับที่</th>
+            {{-- <th scope="col">Task Description</th> --}}
+            <th scope="col" class="text-center">วันที่</th>
+            <th scope="col" class="text-center">รายละเอียด</th>
+            <th scope="col" class="text-center">การกรระทำ</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($diaries as $diariesa)
+          <tr>
+
+            <th scope="row" class="text-center">{{$diariesa->id}}</th>
+            {{-- <td>{{$diariesa->description}}</td> --}}
+            <td class="text-center">{{$diariesa->created_at->toFormattedDateString()}}</td>
+            <td class="text-center">  
+              {{-- <span class="text-truncate">               --}}
+                <div class="b">
+              <a href="{{route('diariesa.show', $diariesa->id)}}">
+                {!!strip_tags($diariesa->description) !!}
+              </a>
+            </div>
+            {{-- </span>  --}}
+            </td>
+
+            <td class="text-center" >
+            <div class="btn-group" role="group" aria-label="Basic example">
+                {{-- <a href="{{route('diariesa.show', $diariesa->id)}}">
+                  <button type="button" class="btn btn-warning">View</button>
+                </a>&nbsp; --}}
+
+                <a href="{{route('diariesa.edit', $diariesa->id)}}">
+                  <button type="button" class="btn btn-warning">
+                    <i class="tim-icons icon-pencil" aria-hidden="true"></i></button>
+                </a>&nbsp;
+
+                {{-- <form action="{{url('student', [$diariesa->id])}}" method="POST">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <input type="submit" class="btn btn-danger" value="Delete"/>
+                </form> --}}
+
+                {!! Form::open(['route' => ['diariesa.destroy', $diariesa->id], 'method' => 'DELETE']) !!}
+                  {!! Form::submit('ลบ', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!}
+
+            </div>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+     </div>
   </div>
 </div>
+
    
     
 @endsection
 
-@push('js')
-    <script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script>
-    <script>
-        $(document).ready(function() {
-          demo.initDashboardPageCharts();
-        });
-    </script>
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#table3d').DataTable();
+} );
+</script>
 @endpush

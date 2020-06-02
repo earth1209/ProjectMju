@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-md-6 ">
                             <div class="form-inline float-right">
-                                <label for="">รายชื่อนักศึกษาปีที่ต้องเข้าฝึกงาน :&nbsp;</label>
+                                <label for="">หาข้อมูลแต่ละปี :&nbsp;</label>
                                 <form action="/company/resume" method="get">
                                     <select class="form-control mr-sm-2" name="" style="width: 95px;background: #ffffff">
                                         @php $firstYear = (int)date('Y')-5; @endphp
@@ -36,10 +36,15 @@
     <div class="col-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{{ route('officer.student_status') }}">สถานะการฝึกงานของนักศึกษา<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link active" href="{{ route('officer.stu_activity_hours') }}">ชั่วโมงกิจกรรม</a>
-              </div>
+                <div class="col-md-6">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="{{ url('officer/stu_companies') }}">สถานะการฝึกงานของนักศึกษา<span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" href="{{ route('officer.stu_activity_hours') }}">ชั่วโมงกิจกรรม</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="{{ route('officer.form_status') }}"><button type="submit" class="btn btn-info">บันทึกข้อมูล</button></a>
+                </div>
             </div>
           </nav>
     </div>
@@ -49,9 +54,10 @@
             <div class="card-header" style="background-color: #ffffff ">
                 <div class="container">
                     <div class="card wow bounceInUp">
-                        <table class="table table-hover table-striped table-bordered" >
+                        <table class="table table-hover table-striped table-bordered" id="table2sah">
                             <thead class="table-info text-primary">
                             <tr>
+                                <th class="text-center" scope="col" rowspan="3">ลำดับ</th>
                                 <th class="text-center" scope="col" rowspan="3">รหัสนักศึกษา</th>
                                 <th class="text-center" scope="col" rowspan="3">ตรวจสอบสหกิจ</th>
                                 <th class="text-center" scope="col" colspan="4">ตรวจสอบเกรดวิชาบังคับ(กรณีสหกิจ)</th>
@@ -91,8 +97,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                                {{-- @for ( $i=0 ; $i < 5; $i++) --}}
+                                {{-- @foreach ($stu_company as $stu_companies) --}}
                                 <tr>
+                                    {{-- @for ( $i=1 ; $i < 5; $i++)
+                                    <td class="text-center">{{$i}}</td>
+                                    @endfor --}}
+                                    <td class="text-center">1</td>
                                     <td class="text-center">5904101362</td>
                                     <td class="text-center">ได้</td>
                                     <td class="text-center">ผ่าน</td>
@@ -100,11 +110,11 @@
                                     <td class="text-center">ผ่าน</td>
                                     <td class="text-center">ผ่าน</td>
                                     <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
                                     <td class="text-center">4</td>
                                     <td class="text-center">8</td>
                                     <td class="text-center">6</td>
                                     <td class="text-center">14</td>
+                                    <td class="text-center">3</td>
                                     <td class="text-center">3</td>
                                     <td class="text-center">3</td>
                                     <td class="text-center">3</td>
@@ -115,99 +125,8 @@
                                     <td class="text-center"><button type="button" class="btn btn-warning waves-effect px-3"><i class="tim-icons icon-pencil" aria-hidden="true"></i></button></td>
                                     <td class="text-center"><button type="button" class="btn btn-danger  px-3"><i class="tim-icons icon-trash-simple" aria-hidden="true"></i></button></td>
                                 </tr>
-                                <tr>
-                                    <td class="text-center">5904101365</td>
-                                    <td class="text-center">ได้</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">4</td>
-                                    <td class="text-center">8</td>
-                                    <td class="text-center">6</td>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">41</td>
-                                    <td class="text-center"><button type="button" class="btn btn-warning waves-effect px-3"><i class="tim-icons icon-pencil" aria-hidden="true"></i></button></td>
-                                    <td class="text-center"><button type="button" class="btn btn-danger  px-3"><i class="tim-icons icon-trash-simple" aria-hidden="true"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">5904101375</td>
-                                    <td class="text-center">ได้</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">4</td>
-                                    <td class="text-center">8</td>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">14</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">49</td>
-                                    <td class="text-center"><button type="button" class="btn btn-warning waves-effect px-3"><i class="tim-icons icon-pencil" aria-hidden="true"></i></button></td>
-                                    <td class="text-center"><button type="button" class="btn btn-danger  px-3"><i class="tim-icons icon-trash-simple" aria-hidden="true"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">5904101367</td>
-                                    <td class="text-center">ได้</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">20</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">4</td>
-                                    <td class="text-center">8</td>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">14</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">49</td>
-                                    <td class="text-center"><button type="button" class="btn btn-warning waves-effect px-3"><i class="tim-icons icon-pencil" aria-hidden="true"></i></button></td>
-                                    <td class="text-center"><button type="button" class="btn btn-danger  px-3"><i class="tim-icons icon-trash-simple" aria-hidden="true"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">5904101368</td>
-                                    <td class="text-center">ได้</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ไม่ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">ผ่าน</td>
-                                    <td class="text-center">2</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">4</td>
-                                    <td class="text-center">8</td>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">0</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">3</td>
-                                    <td class="text-center">35</td>
-                                    <td class="text-center"><button type="button" class="btn btn-warning waves-effect px-3"><i class="tim-icons icon-pencil" aria-hidden="true"></i></button></td>
-                                    <td class="text-center"><button type="button" class="btn btn-danger  px-3"><i class="tim-icons icon-trash-simple" aria-hidden="true"></i></button></td>
-                                </tr>
-                                {{-- @endfor --}}
+                                {{-- @endforeach --}}
+                                
                             </tbody>
                         </table>
                     </div>
@@ -217,3 +136,21 @@
     </div>
     
 @endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#table2sah').DataTable();
+} );
+
+// $(document).ready(function() {
+//     var table = $('#example').DataTable( {
+//         lengthChange: false,
+//         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+//     } );
+//     table.buttons().container()
+//         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+// } );
+
+</script>
+@endpush

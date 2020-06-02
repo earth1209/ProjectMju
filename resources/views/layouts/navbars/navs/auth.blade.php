@@ -19,17 +19,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
-                <li class="search-bar input-group">
+                {{-- <li class="search-bar input-group">
                     <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                         <span class="d-lg-none d-md-block">{{ __('Search') }}</span>
                     </button>
-                </li>
+                </li> --}}
                 <li class="dropdown nav-item">
-                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                    {{-- <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="notification d-none d-lg-block d-xl-block"></div>
                         <i class="tim-icons icon-bell-55"></i>
                         <p class="d-lg-none"> {{ __('Notifications') }} </p>
-                    </a>
+                    </a> --}}
                     <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
                         <li class="nav-link">
                             <a href="#" class="nav-item dropdown-item">{{ __('Mike John responded to your email') }}</a>
@@ -56,7 +56,7 @@
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             {{ old('name', auth()->user()->name) }}<br>
-                            {{-- <b>[ {{ old('type_name', auth()->user()->type_name) }} ]</b> --}}
+                            {{-- <b> {{ old('type_name', auth()->user()->type_name_thai) }} </b> --}}
                         <b class="caret d-none d-lg-block d-xl-block"></b>
                         <p class="d-lg-none">{{ __('Log out') }}</p>
                     </a>

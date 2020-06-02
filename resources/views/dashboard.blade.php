@@ -21,32 +21,29 @@
             <h5 class="box_title icon-box wow fadeInUp" style="margin-back-to-top: 0px"><img class="icon" src=""/></h5>
           <div class="card wow bounceInUp" >
 
-            <table class="table table-hover table-striped">
-             <tbody>
+            <table class="table table-hover table-striped" id="table0db">
                 <thead class="table-info text-primary">
                     <tr>
                         <th width="15%" scope="row" class="text-center">บริษัท</th>
-                        <th width="15%" scope="row" class="text-center">เกรดเฉลี่ย</th>
+                        <th width="5%" scope="row" class="text-center">เกรดเฉลี่ย</th>
                         <th width="5%" scope="row" class="text-center">จำนวนที่รับ</th>
-                        <th width="5%" scope="row" class="text-center">ความสามารถ</th>
+                        <th width="15%" scope="row" class="text-center">ความสามารถ</th>
                         <th width="5%" scope="row" class="text-center">วันที่เปิดรับ</th>
                     </tr> 
                 </thead>
                 @foreach($recruits_news as $announce)
                   <tr>
-                    <td width="15%" scope="row" class="text-center"><a href="">{{ $announce->companies->first()->company_name}}</a></td>
+                    <td width="15%" scope="row" class="text-center"><a href="">{{ $announce->companies->first()->companies_name}}</a></td>
                     <td width="15%" scope="row" class="text-center">{{$announce['gpa']}}</td>
                     <td width="5%" scope="row" class="text-center">{{$announce['student_number']}}</td>
-                    <td width="5%" scope="row" class="text-center">@foreach($announce->recruits_skills as $item)
+                    <td width="15%" scope="row" class="text-center">@foreach($announce->recruits_skills as $item)
                                     
                         {{ $item->recruits_skill->skill_name }},
-                        
                         
                         @endforeach</td>
                     <td width="5%" scope="row" class="text-center"><a class="badge badge-success" href="">{{$announce['created_at']}}</a></td>
                   </tr>
                 @endforeach
-             </tbody>
            </table>
          </div><br>
         </div>
@@ -77,4 +74,22 @@
           demo.initDashboardPageCharts();
         });
     </script>
+@endpush
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $('#table0db').DataTable();
+    } );
+
+// $(document).ready(function() {
+//     var table = $('#table0db').DataTable( {
+//         lengthChange: false,
+//         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+//     } );
+//     table.buttons().container()
+//         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+// } );
+
+</script>
 @endpush

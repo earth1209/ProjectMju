@@ -9,20 +9,31 @@
                 <ul class="row">
                     <div class="col-md-6">
                         <img src="{{ asset('white') }}/img/icon/folder.png" style="width: 7%;" alt="homepage" class="img-responsive" />
-                        รายชื่อนักศึกษาที่สมัครเข้าฝึกงานกับบริษัท
+                        สถานที่ฝึกงานของนักศึกษา
                     </div>
                     <div class="col-md-6 ">
-                        <form class="form-inline float-right">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="tim-icons icon-zoom-split"></i></button>
-                        </form>
+                        <div class="form-inline float-right">
+                            <label for="">หาข้อมูลแต่ละปี :&nbsp;</label>
+                            <form action="/company/resume" method="get">
+                                <select class="form-control mr-sm-2" name="" style="width: 95px;background: #ffffff">
+                                    @php $firstYear = (int)date('Y')-5; @endphp
+                                    @php $thisYear = $firstYear+5; @endphp
+                                    @php for($i=$firstYear;$i<=$thisYear;$i++) 
+                                        { 
+                                            echo '<option value=' .$i.'>ปี '.$i.'</option>';
+                                        }
+                                    @endphp
+                                </select>
+                                <button type="submit" class="btn"><i class="tim-icons icon-zoom-split" aria-hidden="true"></i></button>     
+                            </form>    
+                        </div>
                     </div>             
                 </ul> 
             </h4>
         </div>
     </div>
 </div>
-<div class="row">
+{{-- <div class="row">
     <div class="col-sm-12 textcenter d-flex justify-content-end">
            <div class="form-inline">
             <label for="">ปีที่นักศึกษาสมัครเข้าฝึกงาน :&nbsp;</label>
@@ -41,17 +52,14 @@
             
             </div>
         </div>
-        
-  
-    {{--   --}}
-</div>
-<br>
+    
+</div> --}}
     <div class="col-12">
         <div class="card card-chart">
             <div class="card-header" style="background-color: #ffffff ">
                 <div class="container">
                     <div class="card wow bounceInUp">
-                        <table class="table table-hover table-striped table-bordered" >
+                        <table class="table table-hover table-striped table-bordered" id="table2nlbc">
                             <thead class="table-info text-primary">
                             <tr>
                                 <th class="text-center" scope="col" rowspan="2">จังหวัดที่ไปฝึก</th>
@@ -62,11 +70,8 @@
                                 <th class="text-center" scope="col" rowspan="2">สถานะทางเอกสาร</th>
                                 <th class="text-center" scope="col" rowspan="2">สิ่งที่นักศึกษาต้องทำ</th>
                                 <th class="text-center" scope="col" rowspan="2">แนะนำวิชาหลังฝึกงาน</th>
-                                <th class="text-center" scope="col" colspan="2">การกระทำ</th>
-                            </tr>
-                            <tr>
-                                <th class="text-center" scope="col" rowspan="1">Edit</th>
-                                <th class="text-center" scope="col" rowspan="1">Delete</th>
+                                <th class="text-center" scope="col" rowspan="1">แก้ไข</th>
+                                <th class="text-center" scope="col" rowspan="1">ลบ</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -125,7 +130,7 @@
                                     <td class="text-center">1</td>
                                     <td class="text-center">5904101368</td>
                                     <td class="text-center">นายศักดิ์สิทธิ์ สีแก้ว</td>
-                                    <td class="text-center">รอผลสัมภาษณ์ 19 มี.ค.63</td>
+                                    <td class="text-center">ตอบรับแล้ว</td>
                                     <td class="text-center">รอผล</td>
                                     <td class="text-center">วท498</td>
                                     <td class="text-center"><button type="button" class="btn btn-warning waves-effect px-3"><i class="tim-icons icon-pencil" aria-hidden="true"></i></button></td>
@@ -143,3 +148,20 @@
 
 @endsection
 
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#table2nlbc').DataTable();
+} );
+
+// $(document).ready(function() {
+//     var table = $('#example').DataTable( {
+//         lengthChange: false,
+//         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+//     } );
+//     table.buttons().container()
+//         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+// } );
+
+</script>
+@endpush

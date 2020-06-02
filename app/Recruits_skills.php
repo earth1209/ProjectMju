@@ -10,7 +10,7 @@ class Recruits_skills extends Model
 
     public function recruits_skill()
     {
-        return $this->hasOne('App\skill','skill_id','skill_id');
+        return $this->hasOne('App\skills','skill_id','skill_id');
     }
 
     // public function skill()

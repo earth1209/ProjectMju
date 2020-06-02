@@ -24,7 +24,7 @@
                                             }
                                         @endphp
                                     </select>
-                                    <button type="submit" class="btn">Filter</button>     
+                                    <button type="submit" class="btn"><i class="tim-icons icon-zoom-split" aria-hidden="true"></i></button>     
                                 </form>    
                             </div>
                         </div>             

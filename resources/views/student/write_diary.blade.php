@@ -34,7 +34,7 @@
                       </div>             
                   </ul>  --}}
 
-                <table>
+                <table id="table3wd">
                   <tbody>
                     <tr>
                       <td>
@@ -80,11 +80,12 @@
     
 @endsection
 
-@push('js')
-    <script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script>
-    <script>
-        $(document).ready(function() {
-          demo.initDashboardPageCharts();
-        });
-    </script>
+@endsection
+
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#table3wd').DataTable();
+} );
+</script>
 @endpush

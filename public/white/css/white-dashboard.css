@@ -11073,7 +11073,7 @@ fieldset[disabled] .btn-info.active {
   box-shadow: none;
 }
 
-/* แก้สี */
+/* แก้ไขสี */
 .btn-warning {
   background: #ff9f72;
   background-image: -webkit-linear-gradient(to bottom left, #ff8d72, #ffde64, #ff8d72);
@@ -16406,14 +16406,15 @@ fieldset[disabled] .form-control {
   margin-left: 0;
 }
 
+/* แก้ไข ที่ คอมเม้นไว้ 2 บรรทัด */
 textarea.form-control {
   max-width: 100%;
   max-height: 80px;
-  padding: 10px 10px 0 0;
+  padding: 10px 10px 0 10px;
   resize: none;
-  border: none;
+  /* border: none; */
   border-bottom: 1px solid #2b3553;
-  border-radius: 0;
+  /* border-radius: 0; */
   line-height: 2;
 }
 
@@ -17773,7 +17774,7 @@ Copyright (c) 2015 Daniel Eden
 
 .full-page>.content {
   padding-bottom: 150px;
-  padding-top: 70px;/*แก้จาก 150 เป็น 70*/
+  padding-top: 70px;/*แก้ไขจาก 150 เป็น 70*/
 }
 
 .full-page .footer {
@@ -18135,5 +18136,6 @@ p.font{
   background: rgba(0,0,0,0);
 }
 
+  
 
 /*# sourceMappingURL=dashboard-free.css.map */

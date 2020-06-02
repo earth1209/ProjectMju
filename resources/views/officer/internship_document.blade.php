@@ -12,7 +12,7 @@
                         เอกสารการฝึกงาน
                     </div>
                     <div class="col-md-6 text-right">
-                        {{-- <button class="btn btn-primary-title"><i class="tim-icons icon-simple-add"></i>  เพิ่มเอกสาร</button> --}}
+                        <a href="{{route('document.create')}}"><button class="btn btn-info">เพิ่มเอกสาร</button></a>
                     </div>             
                 </ul> 
             </h4>
@@ -23,130 +23,54 @@
             <div class="card-header" style="background-color: #ffffff ">
                 <div class="container">
                     <div class="card wow bounceInUp">
-                        <table class="table table-hover" >
+                        <table class="table table-hover" id="table2id">
                             <thead class="table-info text-primary">
                             <tr>
-                                <th class="text-center" scope="col">เอกสารก่อนฝึกงาน</th>
                                 <th class="text-center" scope="col">ชื่อเอกสาร</th>
-                                <th class="text-center" scope="col"><button class="btn btn-info"><i class="tim-icons icon-simple-add"></i>  เพิ่มเอกสาร</button></center></th>
+                                <th class="text-center" scope="col">Action</th>
                             </tr>
                             </thead>
+                            @foreach ($document as $documents)
                             <tbody>
-                                @for ( $i=0 ; $i < 5; $i++)
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="photo">
-                                            <img src="{{ asset('white') }}/img/icon/contract.png" alt="{{ __('icon pdf') }}">    
-                                        </div>
-                                    </td>
-                                    <td class="text-center">แบบฟอร์มเสนอรายชื่อสถานประกอบการเพื่อฝึกงาน/สหกิจ สาขาวิทยาการคอมพิวเตอร์ </td>
-                                    <td class="text-center">
-                                        <a>
-                                            <button name="" type="submit" class="btn btn-primary">  แก้ไข</button>
-                                        </a>
-                
-                                        <a>
-                                            <button name="delete" type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">  ลบ</button>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- <div class="card card-chart">
-            <div class="card-header" style="background-color: #ffffff ">
-                <div class="container">
-                    <div class="card wow bounceInUp">
-                        <table class="table table-hover" >
-                            <thead class="table-info text-primary">
-                            <tr>
-                                <th scope="col"><center>เอกสารระหว่างฝึกงาน</center></th>
-                                <th scope="col"><center>ชื่อเอกสาร</center></th>
-                                <th scope="col"><center><button class="btn btn-primary-title"><i class="tim-icons icon-simple-add"></i>  เพิ่มเอกสาร</button></center></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @for ( $i=1 ; $i < 5; $i++)
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="photo">
-                                            <img src="{{ asset('white') }}/img/icon/contract.png" alt="{{ __('icon pdf') }}">    
-                                        </div>
-                                    </td>
-                                    <td class="text-center"><center>เอกสารส่งตัว ครั้งแรกก่อนฝึกงาน</center></td>
-                                    <td>
-                                    <center>
-                                        <a>
-                                            <button name="" type="submit" class="btn btn-primary">  แก้ไข</button>
-                                        </a>
-                
-                                        <a>
-                                            <button name="delete" type="submit" class="btn btn-primary1" onclick="return confirm('Are you sure?')">  ลบ</button>
-                                        </a>
-                                    </center>
-                                    </td>
-                                </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card card-chart">
-            <div class="card-header" style="background-color: #ffffff ">
-                <div class="container">
-                    <div class="card wow bounceInUp">
-                        <table class="table table-hover" >
-                            <thead class="table-info text-primary">
-                            <tr>
-                                <th scope="col"><center>เอกสารหลังฝึกงาน</center></th>
-                                <th scope="col"><center>ชื่อเอกสาร</center></th>
-                                <th scope="col"><center><button class="btn btn-primary-title"><i class="tim-icons icon-simple-add"></i>  เพิ่มเอกสาร</button></center></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @for ( $i=1 ; $i < 5; $i++)
-                                <tr>
-                                    <td class="text-center">
-                                        <div class="photo">
-                                            <img src="{{ asset('white') }}/img/icon/contract.png" alt="{{ __('icon pdf') }}">    
-                                        </div>
-                                    </td>
-                                    <td class="text-center"><center>เอกสารหลังฝึกงานเสร็จสิ้น</center></td>
-                                    <td>
-                                    <center>
-                                        <a>
-                                            <button name="" type="submit" class="btn btn-primary">  แก้ไข</button>
-                                        </a>
-                
-                                        <a>
-                                            <button name="delete" type="submit" class="btn btn-primary1" onclick="return confirm('Are you sure?')">  ลบ</button>
-                                        </a>
-                                    </center>
-                                    </td>
-                                </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-    </div>
-</div>
-{{-- @foreach($users as $row) --}}
+                                <td>{{ $documents->name_documents }}</td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
 
-<div class="row">
-    <div class="col-md-6">    
-            
-    </div>
+                                        <a href="{{route('document.download',$documents->documents_id)}}">
+                                            <button type="button" class="btn btn-info waves-effect px-3">
+                                                {{-- <i class="bi bi-file-arrow-down" aria-hidden="true"></i> --}}
+                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                            </button>
+                                        </a>&nbsp;
+                                        
+                                    <form action="{{route('document.destroy',$documents->documents_id)}}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                         <button type="submit" class="btn btn-danger px-3" onclick="return confirm('คุณต้องการลบข้อมูลนี้หรือไม่ ?')"><i class="fa fa-trash"></i></button>
+
+                                        {{-- <input type="submit" class="btn btn-danger btn-block" onclick="return confirm('คุณต้องการลบข้อมูลนี้หรือไม่ ?')" value="DELETE"> --}}
+                                    </form>
+
+                                    </div>
+                                </td>
+                             </tbody>
+                            @endforeach
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
 </div>
-{{-- @endforeach --}}
+
 
 @endsection
 
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#table2id').DataTable();
+} );
+
+</script>
+@endpush

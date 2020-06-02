@@ -97,11 +97,11 @@
                                     <i class="tim-icons icon-single-02"></i>
                                 </div>
                             </div>
-                            <select type="int" name="type" class="form-control">
-                                {{-- <option name="1" value="1">SuperAdmin</option>
+                            <select type="number" name="type" class="form-control">
+                                <option name="1" value="1">SuperAdmin</option>
                                 <option name="2" value="2">Student</option>
                                 <option name="3" value="3">Teacher</option>
-                                <option name="4" value="4">Officer</option> --}}
+                                <option name="4" value="4">Officer</option>
                                 <option name="5" value="5">Company</option>
                             </select>
                             @include('alerts.feedback', ['field' => 'type'])

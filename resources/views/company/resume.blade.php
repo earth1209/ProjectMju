@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('Company'), 'pageSlug' => 'resume'])
+@extends('layouts.app', ['page' => __(''), 'pageSlug' => 'resumeshow'])
 
 @section('content')
 
@@ -15,97 +15,172 @@
     <div class="col-sm-12 textcenter d-flex justify-content-end">
            <div class="form-inline">
             <label for="">ปีที่นักศึกษาสมัครเข้าฝึกงาน :&nbsp;</label>
-            <form action="/company/resume" method="get">
-                <select class="form-control mr-sm-2" name="year" style="width: 95px;background: #ffffff">
-                    @php $firstYear = (int)date('Y')-5; @endphp
-                    @php $thisYear = $firstYear+5; @endphp
-                    @php for($i=$firstYear;$i<=$thisYear;$i++) 
-                        { 
-                            echo '<option value=' .$i.'>ปี '.$i.'</option>';
+            {{-- <iframe name="votar" style="display:none;"></iframe> --}}
+            <form action="/company/resume" method="GET" id="my-form">
+                <select class="form-control mr-sm-2" id="year" name="year" style="width: 95px;background: #ffffff">
+                   <option value="">--ทุกปี--</option>
+                    @php 
+                    
+                        $year = date('Y');
+                        $min = $year - 5;
+                        $max = $year;
+                        for( $i=$max; $i>=$min; $i-- ) {
+                            if(isset($_REQUEST["year"]) && ($_REQUEST["year"] == $i)) {
+                        
+                                $selected = 'selected="selected"';
+                            } else {
+                                $selected='';
+                            }
+                            echo "<option value=$i $selected>$i</option>";
                         }
+                        
                     @endphp
                 </select>
-                <button type="submit" class="btn">Filter</button>     
+                <button name="filter" id="filter"  type="submit" class="btn">Filter</button>   
+                       
             </form>
-            
+            @php
+                    if(isset($_REQUEST["filter"]))
+                    {
+                        $filter = $_REQUEST["year"]; 
+                    }                               
+            @endphp
+           
             </div>
         </div>
         
-  
     {{--   --}}
 </div>
 <br>
-{{-- pagination in year --}}
 
 {{-- //// --}}
 <div class="row">
 
+
+    
     @foreach ($resumes as $resume)
+     
     <div class="col-md-6">
         <div class="card" id="card_resume" name="card_resume">
-            <div class="card-header" onclick="sortTable(0)">
-                <h5 class="card-category" >Date/Time: {{ $resume->created_at }}</h5>
+            <div class="form-inline">
+                
+                <div class="card-header col-md-9" >
+                    <h5 class="card-category" style="color: silver">Date/Time: {{ $resume->created_at }}</h5>
+                </div>
+                <div class="card-header col-md-3">
+                    {{-- <span class="badge badge-pill badge-danger">{{ $resume->status }}</span> --}}
+                   
+                    {{-- @if(($resume->status())==0)
+                        <span class="badge badge-pill badge-danger">กำลังหาที่ฝึกงาน</span>
+                    
+                    @else
+                        <span class="badge badge-pill badge-success">ได้ที่ฝึกงานแล้ว</span>
+                    @endif --}}
+                    
+
+                </div>
+               
+                
             </div>
             <div class="card-body">
                 <div class="row">
                     
                     <div class="col-lg-4">
                         <div class="photo">
-                            <img src="{{ asset('white/img/anime3.png') }}" width="100" height="100" alt="Profile Photo">
+                            <img src="{{ asset('/white/'.'/img/'.'/student/'.$resume->img) }}" width="150" height="125" alt="Profile Photo">
                         </div>
                     </div>
                     <br>
                     <div class="col-lg-8">
-                        <span id="resume_name" name="resume_name" onclick="sortTable(1)"><i class="tim-icons icon-single-02" ></i> ชื่อ-นามสกุล
-                            : {{ $resume->resume_name }}
-                            {{ $resume->resume_lname }}</span><br>
-                        <span id="resume_lname" name="resume_lname" onclick="sortTable(2)"><i class="tim-icons icon-single-copy-04"></i> GPA :
-                            {{ $resume->resume_grade }}</span><br>
-                        <span id="skill_id" name="skil_id" onclick="sortTable(3)"><i class="tim-icons icon-bulb-63"></i> ความถนัด :
-                            {{ $resume->skill_name }}</span><br>
-                        <span id="resume_contact" name="resume_contact" onclick="sortTable(4)"><i class="tim-icons icon-chat-33"></i>
-                            ช่องทางติดต่อ : {{ $resume->resume_contact }}</span>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-badge" ></i> รหัสนักศึกษา
+                            : &nbsp;{{ $resume->code }}</span><br> {{-- ดึงข้อมูจากฐานข้อมูล --}}
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-single-02" ></i> ชื่อ-นามสกุล
+                            : &nbsp;{{ $resume->stu_name }}
+                            </span><br>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-gift-2" ></i> วันเกิด
+                            : &nbsp;{{ $resume->birthday }}</span><br>
+                        &emsp;<span id="resume_name" name="resume_name"></i> อายุ
+                            : &nbsp;{{ $resume->age }} &nbsp;ปี</span><br>
+                        &emsp;<span id="resume_name" name="resume_name"> สัญชาติ
+                            : &nbsp;{{ $resume->nationality }}</span>&emsp;&emsp;&emsp;&emsp;
+                        <span id="resume_name" name="resume_name"> เชื้อชาติ
+                            : &nbsp;{{ $resume->race }}</span><br>
+                        
+                        <span id="resume_lname" name="resume_lname"><i class="tim-icons icon-single-copy-04"></i> GPA :
+                            &nbsp;{{ $resume->gpa }}</span><br>
+                        
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-chat-33" ></i> ภาษา
+                                : &nbsp;{{ $resume->language }}</span><br>
+                        
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-lg-12">
+                        <span id="skill_id" name="skil_id"><i class="tim-icons icon-bulb-63"></i> ความถนัด : &nbsp;
+                        @foreach ($resume->resume_skills as $item)
+                            
+                             {{ $item->resume_skill->skill_name }},
+
+                        @endforeach  
+                        </span><br>
+                        <span id="resume_name" name="resume_name" ><i class="tim-icons icon-shape-star" ></i> จุดมุ่งหมาย
+                            : <br>&emsp;&nbsp;{{ $resume->aim }}</span><br>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-satisfied" ></i> งานอดิเรก
+                            : &nbsp;{{ $resume->hobby }}</span><br>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-bank" ></i> การศึกษา
+                            : &nbsp;{{ $resume->education }}</span><br>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-molecule-40" ></i> ประสบการณ์
+                            : &nbsp;{{ $resume->experience }}</span><br>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-user-run" ></i> กิจกรรม
+                            : &nbsp;{{ $resume->event }}</span><br>
+                        <span id="resume_contact" name="resume_contact"><i class="tim-icons 
+                            icon-tablet-2"></i>
+                            ช่องทางการติดต่อ : &nbsp;{{ $resume->contact }}</span><br>
+                        <span id="resume_name" name="resume_name"><i class="tim-icons icon-map-big" ></i> ที่อยู่
+                            : &nbsp;</span><br>
+                    </div>
+                </div>
+                {{-- <div class="row">
                     <div class="col-12 text-right">
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="check[]"
-                                    value="{{ $resume->resume_id }}">
+                                <input class="form-check-input" type="checkbox" name="check[]" id="check[]"
+                                    value="{{ $resume->id }}">
                                 <span class="form-check-sign">
                                     <span class="check"></span>
                                 </span>
                             </label>
                         </div><br>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
         </div>
     </div>
+    
     @endforeach
-
+    
 </div>
 
-<div class="col-lg-12 lg-auto mr-auto">
+{{-- <div class="col-lg-12 lg-auto mr-auto">
     <div class="row">
         <div class="col-md-4">
-            <input class="btn btn-fill btn-block" type="button" onclick='selectAll()' value="เลือกทั้งหมด" />
+            <input class="btn btn-fill btn-block" type="button" id="selectall" onclick='selectAll()' value="เลือกทั้งหมด"  />
         </div>
         <div class="col-md-4">
-            <input class="btn btn-fill btn-block" type="button" onclick='UnSelectAll()' value="ยกเลิกทั้งหมด" />
+            <input class="btn btn-fill btn-block" type="button" id="notselectall" onclick='UnSelectAll()' value="ยกเลิกทั้งหมด"/>
         </div>
         <div class="col-md-4">
-            <input class="btn btn-fill btn-block" type="button" onclick='' value="บันทึก">
+            <input class="btn btn-fill btn-block" type="submit" id="btn-submit" value="บันทึก" />  
         </div>
     </div>
-</div>
+</div> --}}
 
 
 
-{{-- script checkbox --}}
-<script type="text/javascript">
+
+{{-- <script type="text/javascript">
+//script checkbox 
     function selectAll() {
         var items = document.getElementsByName('check[]');
         for (var i = 0; i < items.length; i++) {
@@ -120,65 +195,25 @@
             if (items[i].type == 'checkbox')
                 items[i].checked = false;
         }
-    }			
-</script>
-{{-- script select year --}}
-<script>
-    function sortTable(n) {
-        var card, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-        card = document.getElementById("card_resume");
-        switching = true;
-        // Set the sorting direction to ascending:
-        dir = "asc";
-        /* Make a loop that will continue until
-        no switching has been done: */
-        while (switching) {
-            // Start by saying: no switching is done:
-            switching = false;
-            rows = card.rows;
-            /* Loop through all table rows (except the
-            first, which contains table headers): */
-            for (i = 1; i < (rows.length - 1); i++) {
-                // Start by saying there should be no switching:
-                shouldSwitch = false;
-                /* Get the two elements you want to compare,
-                one from current row and one from the next: */
-                x = rows[i].getElementsByTagName("TD")[n];
-                y = rows[i + 1].getElementsByTagName("TD")[n];
-                /* Check if the two rows should switch place,
-                based on the direction, asc or desc: */
-                if (dir == "asc") {
-                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                } else if (dir == "desc") {
-                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                        // If so, mark as a switch and break the loop:
-                        shouldSwitch = true;
-                        break;
-                    }
-                }
+    }	
+//disable
+    $(document).ready(function () {
+
+
+            // var $d= new Date().getYear();
+            // var $y = $d.getYear();
+            var $year = document.getElementById("year");
+
+
+            if ($year == new Date().getYear()) {
+                $("#btn-submit, #selectall, #notselectall").attr("disabled", false);
+            }else{
+                $("#btn-submit, #selectall, #notselectall").attr("disabled", true);
             }
-            if (shouldSwitch) {
-                /* If a switch has been marked, make the switch
-                and mark that a switch has been done: */
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-                // Each time a switch is done, increase this count by 1:
-                switchcount++;
-            } else {
-                /* If no switching has been done AND the direction is "asc",
-                set the direction to "desc" and run the while loop again. */
-                if (switchcount == 0 && dir == "asc") {
-                    dir = "desc";
-                    switching = true;
-                }
-            }
-        }
-    }
-    </script>
+        
+    });
+</script> --}}
+
 
 
 

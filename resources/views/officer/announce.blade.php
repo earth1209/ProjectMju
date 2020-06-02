@@ -12,8 +12,8 @@
                         ประกาศรับนักศึกษาฝึกงาน
                     </div>
                     <div class="col-md-6 text-right">
-                        <a href="{{ route('officer.add_news') }}">
-                        <button class="btn btn-info"><i class="tim-icons icon-simple-add"></i>  ประกาศรับนักศึกษา</button>
+                        <a href="{{ route('recruits_news.create') }}">
+                            <button class="btn btn-info"><i class="tim-icons icon-simple-add"></i>  ประกาศรับนักศึกษา</button>
                         </a>
                     </div>      
                 </ul> 
@@ -32,7 +32,7 @@
                         </div>
                     @endif --}}
 
-                        <table class="table table-hover table-striped" >
+                        <table class="table table-hover table-striped" id="table2an">
                             <thead class="table-info text-primary">
                             <tr>
                                 <th class="text-center" scope="col">บริษัท</th>
@@ -40,23 +40,36 @@
                                 <th class="text-center" scope="col">เกรดเฉลี่ย</th>
                                 <th class="text-center" scope="col">ความสามารถ</th>
                                 <th class="text-center" scope="col">วันที่เปิดรับ</th>
-                                <th class="text-center" scope="col">การกระทำ</th>
+                                <th class="text-center" scope="col">
+                                    <div class="form-inline float-right">
+                                        <label for="">หาข้อมูลแต่ละปี :&nbsp;</label>
+                                        <form action="/company/resume" method="get">
+                                            <select class="form-control mr-sm-2" name="" style="width: 95px;background: #ffffff">
+                                                @php $firstYear = (int)date('Y')-5; @endphp
+                                                @php $thisYear = $firstYear+5; @endphp
+                                                @php for($i=$firstYear;$i<=$thisYear;$i++) 
+                                                    { 
+                                                        echo '<option value=' .$i.'>ปี '.$i.'</option>';
+                                                    }
+                                                @endphp
+                                            </select>
+                                            <button type="submit" class="btn"><i class="tim-icons icon-zoom-split" aria-hidden="true"></i></button>     
+                                        </form>    
+                                    </div>
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
                                 @foreach ($recruits_news as $announce){{--ตัวแปรต้องเหมือนใน controller function ที่ส่งค่ามา--}}
                                 <tr>
                                     {{-- <td class="text-center">{{ $announce->company_name }}</td> --}}
-                                    <td class="text-center">{{ $announce->companies->first()->company_name}}</td>
+                                    <td class="text-center">{{ $announce->companies->first()->companies_name}}</td>
                                     {{-- <td class="text-center">{{ $announce->company_id }}</td> --}}
                                     <td class="text-center">{{ $announce->student_number }}</td>
                                     <td class="text-center">{{ $announce->gpa }}</td>
                                     <td class="text-center">
                                     @foreach($announce->recruits_skills as $item)
-                                    
-                                    {{ $item->recruits_skill->skill_name }},
-                                    
-                                    
+                                        {{ $item->recruits_skill->skill_name }},
                                     @endforeach
                                     
                                      {{-- {{ print_r($announce->recruits_skills->first()) }} --}}
@@ -65,12 +78,12 @@
                                     <td class="text-center">
                                         {{-- <form action="{{ route('products.destroy',$product->id) }}" method="POST"> --}}
                                         <a>
-                                            <button name="" type="submit" class="btn btn-warning ">  แก้ไข</button>
+                                            <button name="" type="submit" class="btn btn-warning "><i class="tim-icons icon-pencil" aria-hidden="true"></i></button>
                                         </a>
                                             {{-- @csrf
                                             @method('DELETE') --}}
                                         <a>
-                                            <button name="delete" type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">  ลบ</button>
+                                            <button name="delete" type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="tim-icons icon-trash-simple" aria-hidden="true"></i></button>
                                         </a>
                                         {{-- </form> --}}
                           
@@ -96,3 +109,20 @@
 
 @endsection
 
+@push('scripts')
+<script>
+$(document).ready(function() {
+    $('#table2an').DataTable();
+} );
+
+// $(document).ready(function() {
+//     var table = $('#example').DataTable( {
+//         lengthChange: false,
+//         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
+//     } );
+//     table.buttons().container()
+//         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+// } );
+
+</script>
+@endpush
